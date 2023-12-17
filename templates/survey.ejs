@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang = "en">
+	<!-- Possible Questions: (We can remove this section later)
+	.What year are you?
+	.What is your major?
+	.Which upper level classes have you taken?
+		.How would you rate the difficulty of these classes?
+		.Out of these classes, which ones were your favorite?
+		.What advice would you give to students planning to take upper-level CMSC courses in the future? (We could add a text input?)
+	.How satisfied are you with the availability of upper-level CMSC courses?
+	.Do you feel that the workload of upper-level CMSC courses is manageable?
+	.What programming languages or tools have you found most useful in your upper-level CMSC courses?
+	.What areas of computer science are you most interested in, and have your upper-level courses aligned with those interests? -->
+
+<head>
+	<meta charset = "utf-8" />
+	<title>Survey</title>
+    <link rel="stylesheet" href="/survey.css">
+</head>
+
+<body>
+	<h1><u>Upper Level Survey:</u></h1>
+	<form action="/survey" method="post">
+		<fieldset>
+			<legend>
+				<strong><u>Information</u></strong>
+			</legend>
+
+			<label required>What year are you?: <input type="text" name="year"/></label>
+			<label required>What is your major?: <input type="text" name="major"/></label>
+		</fieldset>
+
+		<fieldset>
+			<legend>
+				<strong><u>Questions</u></strong>
+			</legend>
+
+			<label required>
+                Which upper level classes have you taken?
+				<br>
+                <select name="favoriteCourses" multiple>
+                    <% listOfCourses.forEach(course_id => { %>
+                    <option value="<%= course_id %>"><%= course_id %></option>
+                    <% }); %>
+                </select>
+            </label>
+
+			<br>
+            
+			<label>What programming languages or tools have you found most useful in your upper-level CMSC courses?</label>
+			<br>
+			<select name="languages" multiple id="languages">
+				<option value="python">Python</option>
+				<option value="javascript">JavaScript</option>
+				<option>MIPS</option>
+				<option>Ruby</option>
+				<option>C</option>
+				<option>Java</option>
+				<option>OCaml</option>
+				<option>C#</option>
+				<option>Unity</option>
+				<option>HTML</option>
+				<option>CSS</option>
+				<option>Objective C</option>
+				<option>SQL</option>
+				<option>Fortran</option>
+				<option>MPE</option>
+				<option>Swift</option>
+				<option>MATLAB</option>
+				<option>Kotlin</option>
+				<option>OpenGL</option>
+			</select>
+		</fieldset>
+		<input id="input-submit" type="submit" value="Submit!">
+	</form>
+	<br>
+
+	<a href="/">HOME</a>
+
+</body>
+
+</html>

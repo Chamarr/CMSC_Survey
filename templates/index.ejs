@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<title>CMSC Upper Level Survey</title>
+    <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+	<h1 id="title-head"><u>Welcome to the Terps CMSC Upper Level Survey!</u></h1>
+
+    <strong>Please click <a href="/survey">Take the Survey</a> to start!</strong>
+    
+    <h2><u>Top 10 Courses (by student)</u></h2>
+    <div>
+        <table border="1">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Count</th>
+                <th>Percentage</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% courses.forEach(course => { %>
+                    <tr>
+                    <td><%= course._id %></td>
+                    <td><%= course.count %></td>
+                    <td><%= course.percentage.toFixed(2) %>%</td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+
+        <p>Surveyed Users: <%= totalUsers %></p>
+    </div>
+
+</body>
+
+</html>

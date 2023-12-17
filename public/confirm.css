@@ -1,0 +1,35 @@
+html {
+    font-family: Helvetica, sans-serif;
+    color: #8c8c8c;
+}
+
+body {
+    background-color: #e3f3fb;
+}
+
+.index {
+    color: #4070f4;
+    text-align: center;
+}
+
+#title-h1 {
+    color: #4070f4;
+    text-align: center;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.home-route {
+    color: #4070f4;
+    text-align: center;
+}
+
+a {
+    color: #4070f4;
+    display: block;
+    text-align: center;
+}
+
+a:visited {
+    color: purple;
+}
