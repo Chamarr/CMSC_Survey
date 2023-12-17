@@ -1,8 +1,3 @@
-if (process.argv.length != 3) {
-	process.stdout.write(`Usage: survey.js Port Number\n`);
-	process.exit(1);
-}
-
 const fetch = require("node-fetch");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -10,7 +5,7 @@ const { MongoClient, ServerApiVersion } = require("mongodb");
 require("dotenv").config();
 const app = express();
 const path = require('path');
-const portNumber = process.argv[2];
+const portNumber = process.env.PORT;
 
 const prompt = "Stop to shutdown the server: ";
 const uri = `mongodb+srv://${process.env.MONGO_DB_USERNAME}:${process.env.MONGO_DB_PASSWORD}@cluster0.kmsu81v.mongodb.net/${process.env.MONGO_DB_NAME}?retryWrites=true&w=majority`;
@@ -74,24 +69,7 @@ app.post("/survey", async function (req, res) {
 
 app.listen(portNumber);
 
-console.log(`Survey web server is running at http://localhost:${portNumber}`);
-process.stdin.setEncoding("utf8");
-
-process.stdout.write(prompt);
-process.stdin.on("readable", function () {
-	let dataInput = process.stdin.read();
-	if (dataInput !== null) {
-		let command = dataInput.trim();
-		if (command === "stop") {
-			process.stdout.write("Shutting down the server\n");
-			process.exit(0); /* exiting */
-		} else {
-			process.stdout.write(`Invalid command: ${command}\n`);
-		}
-		process.stdout.write(prompt);
-		process.stdin.resume();
-	}
-});
+console.log(`Survey web server is running at Port ${portNumber}`);
 
 function pullCSCourses() {
     fetch("https://api.umd.io/v1/courses/list")
