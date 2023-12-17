@@ -26,8 +26,8 @@
 				<strong><u>Information</u></strong>
 			</legend>
 
-			<label required>What year are you?: <input type="text" name="year"/></label>
-			<label required>What is your major?: <input type="text" name="major"/></label>
+			<label>What year are you?: <input type="text" name="year" required/></label>
+			<label>What is your major?: <input type="text" name="major" required/></label>
 		</fieldset>
 
 		<fieldset>
@@ -38,7 +38,7 @@
 			<label required>
                 Which upper level classes have you taken?
 				<br>
-                <select name="favoriteCourses" multiple>
+                <select name="favoriteCourses" multiple required>
                     <% listOfCourses.forEach(course_id => { %>
                     <option value="<%= course_id %>"><%= course_id %></option>
                     <% }); %>

@@ -1,5 +1,5 @@
 if (process.argv.length != 3) {
-	process.stdout.write(`Usage: supermarketServer.js jsonFile\n`);
+	process.stdout.write(`Usage: survey.js Port Number\n`);
 	process.exit(1);
 }
 
